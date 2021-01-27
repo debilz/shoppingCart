@@ -1,5 +1,8 @@
 package ClothingStore;
 
+import arrayLists.Cloth;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class modClothes {
@@ -41,6 +44,32 @@ public class modClothes {
 
             initclothes.remove(cloth);
 
+        }
+    }
+
+    public void updateQuantity(int id, int quantity){
+        System.out.println("XXXXXXXXXXXXXXX UPDATE QUANTITY METHOD XXXXXXXXXXXXXXXXX");
+        boolean toUpdate = false;
+        int price = 0;
+        int newQuantity = 0;
+        String type = "";
+        int index = 0;
+        for(int i = 0; i < initclothes.size(); i++)
+        {
+            if(id == initclothes.get(i).getId()){
+                System.out.println("Reducing the quantity of " + initclothes.get(i).getType());
+                toUpdate = true;
+                price = initclothes.get(i).getPrice();
+                type = initclothes.get(i).getType();
+                newQuantity = initclothes.get(i).getQuantity() - quantity;
+                index = i;
+                i = initclothes.size();
+
+            }
+        }
+        if(toUpdate) {
+            initclothes.set(index, new Clothes(id, newQuantity, price, type));
+            System.out.println("CLOTH SIZE after add: " + initclothes.size());
         }
     }
 
