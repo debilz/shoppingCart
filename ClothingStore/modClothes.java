@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class modClothes {
-
+/*
     List<Clothes> initclothes = new initClothes().getClothes();
 
     public void setClothes(int id, int quantity, int price, String type){
@@ -41,9 +41,7 @@ public class modClothes {
             }
         }
         if(toDel == true){
-
             initclothes.remove(cloth);
-
         }
     }
 
@@ -81,4 +79,10 @@ public class modClothes {
             System.out.println(" | Clothes Price: " + cloth.getPrice());
         }
     }
+
+    public List<Clothes> getAllUpdatedClothes(){
+        return initclothes;
+    }
+
+ */
 }

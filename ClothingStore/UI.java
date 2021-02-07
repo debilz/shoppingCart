@@ -10,8 +10,9 @@ public class UI {
     }
 
     public void menu(){
-        modClothes mod = new modClothes();
-        Cart cart = new Cart();
+        initClothes mod = new initClothes();
+        mod.startingClothes();
+        Cart cart = new Cart(mod.getAllUpdatedClothes());
         while(true) {
             int ch;
             System.out.println("============================================================================");
@@ -45,10 +46,11 @@ public class UI {
                 mod.remClothes(remId);
             }
             else if (ch == 4){
-                cart.showCartItems();
+                cart.showCartItems(cart.getAllUpdatedClothes());
             }
             else if (ch == 5){
                 mod.showClothes();
+                new Cart(mod.getAllUpdatedClothes());
                 System.out.print("Enter id of your chosen item: ");
                 int cartId = Integer.parseInt(scan.nextLine());
                 System.out.print("Enter quantity: ");
@@ -56,8 +58,18 @@ public class UI {
                 cart.addCartItems(cartId, quantity);
                 mod.updateQuantity(cartId,quantity);
             }
+
+            else if (ch == 6){
+                cart.showCartItems(cart.getAllUpdatedClothes());
+                System.out.print("Enter id of your chosen item: ");
+                int cartId = Integer.parseInt(scan.nextLine());
+                System.out.print("Enter quantity: ");
+                int quantity = Integer.parseInt(scan.nextLine());
+                mod.updateQuantity(cartId, quantity * -1);
+                cart.remCartItems(cartId, quantity);
+            }
             else {
-                System.out.println("restart starting clothes");
+                cart.checkOut();
             }
         }
     }

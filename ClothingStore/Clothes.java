@@ -21,6 +21,7 @@ public class Clothes {
         return quantity;
     }
 
+
     public int getPrice(){
         return price;
     }
